@@ -187,7 +187,7 @@ static void _parse_stream(config_t *config, xmlDocPtr doc, xmlNodePtr node)
 
         if (strcmp(node->name, "metadata") == 0)
             _parse_metadata(config, doc, node->xmlChildrenNode);
-        else if (strcmp(node->name, "playlist") == 0)
+        else if (strcmp(node->name, "input") == 0)
             _parse_input(config, doc, node->xmlChildrenNode);
         else if (strcmp(node->name, "instance") == 0)
             _parse_instance(config, doc, node->xmlChildrenNode);

@@ -6,10 +6,12 @@
 
 #include "cfgparse.h"
 
+#define BUFSIZE 4096
+
 int main(int argc, char **argv)
 {
     shout_t *shout;
-    unsigned char buff[4096];
+    unsigned char buff[BUFSIZE];
     size_t read, total;
     int ret;
 
@@ -69,7 +71,7 @@ int main(int argc, char **argv)
 	printf("Connected to server\n");
 	total = 0;
 	while (1) {
-	    read = fread(buff, 1, sizeof(buff), stdin);
+	    read = fread(buff, 1, BUFSIZE, stdin);
 	    total += read;
 
 	    if (read > 0) {
