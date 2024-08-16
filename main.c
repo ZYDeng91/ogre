@@ -11,7 +11,7 @@
 int main(int argc, char **argv)
 {
     shout_t *shout;
-    unsigned char buff[BUFSIZE];
+    unsigned char buf[BUFSIZE];
     size_t read, total;
     int ret;
 
@@ -71,11 +71,11 @@ int main(int argc, char **argv)
 	printf("Connected to server\n");
 	total = 0;
 	while (1) {
-	    read = fread(buff, 1, BUFSIZE, stdin);
+	    read = fread(buf, 1, BUFSIZE, stdin);
 	    total += read;
 
 	    if (read > 0) {
-		ret = shout_send(shout, buff, read);
+		ret = shout_send(shout, buf, read);
 		if (ret != SHOUTERR_SUCCESS) {
 		    fprintf(stderr, "Send error: %s\n", shout_get_error(shout));
 		    break;
